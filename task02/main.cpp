@@ -1,14 +1,14 @@
-
 #include <iostream>
 #include "queue.h"
 
+using namespace std;
 
 int main()
 {
     char c;
     std::cout << "Type of queue (a - array, l - list): ";
     std::cin >> c;
-    
+
     BasicQueue *queue = NULL;
     if (c == 'a')
         queue = new ArrayQueue;
@@ -19,10 +19,15 @@ int main()
         return 1;
     }
 
-    /*
-     * Put here your tests: en/dequeue large number of elements
-     */
-
+    int i = 0;
+    data b = 6;
+    for  (i < 23){
+        queue->enqueue(b);
+        i++;
+    }
+    queue->enqueue(2);
+    cout << queue->dequeue() << endl;
+    cout << queue->getLength() << endl;
     delete queue;
     return 0;
 }

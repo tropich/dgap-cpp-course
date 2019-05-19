@@ -1,6 +1,3 @@
-
-#pragma once
-
 typedef int data;
 
 class BasicQueue
@@ -21,8 +18,19 @@ public:
 class ListQueue: public BasicQueue
 {
 public:
-    ListQueue();
-
+    void enqueue(data &data) override;
+	data dequeue() override;
+	unsigned getLength() override;
+	void ListQueue::dellist(List*l);
+	ListQueue();
+    void dellist(Node* l);
+private:
+    struct Node{
+        Node* next
+        data Data
+        };
+    Node* last;
+    Node* first;
     /*
      * Fully implement class:
      * - declarations here
@@ -35,6 +43,14 @@ class ArrayQueue: public BasicQueue
 {
 public:
     ArrayQueue(unsigned max_size = 64);
+    void enqueue(data &data) override;
+	data dequeue() override;
+	unsigned getLength() override;
+	unsigned maxlen;
+private:
+    data *x;
+    unsigned first;
+    unsigned last;
 
     /*
      * Fully implement class:
